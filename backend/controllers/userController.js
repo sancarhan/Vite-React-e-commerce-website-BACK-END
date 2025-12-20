@@ -3,15 +3,38 @@ import bcrypt from "bcrypt"
 import jwt from 'jsonwebtoken'
 import userModel from "../models/userModel.js";
 
+
 const createToken = (id) => {
  return jwt.sign({id},process.env.JWT_SECRET)
 }
 
 // Kullanıcı girişi için yolu
 
-
 const loginUser = async (req, res) => {
- 
+ try {
+  
+  const {email,password} = req.body;
+
+  const user = await userModel.findOne({email});
+
+  if (!user) {
+    return res.json({success:false, message:"Kullanıcı mevcut değil"})
+  }
+
+  const isMatch = await bcrypt.compare(password, user.password);
+
+  if (isMatch) {
+    const token = createToken(user._id)
+    res.json({success:true,token})
+  }
+  else{
+    res.json({success:false, message: "Geçersiz kimlik bilgileri"})
+  }
+
+ } catch (error) {
+  console.log(error);
+   res.json({success:false,message:error.message})
+ }
 };
 
 // Kullanıcı kaydı için yol
