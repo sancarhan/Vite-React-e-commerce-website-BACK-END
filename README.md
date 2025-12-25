@@ -15,3 +15,7 @@
 # Back-end tarafından ürün ekleme çıkarma özelliği
 
 # Proje VSCode üzerinden yapılmata eklentilerden ThunderClienti indirin eklene ürünleri ve kullanıcı girişileri oradan görebilirsiniz.
+
+## 24.12.2025 
+
+# Adiminin gireceği panel yapılmaya başlandı
