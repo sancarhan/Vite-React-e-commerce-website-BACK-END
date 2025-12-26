@@ -2,6 +2,7 @@ import React, { use, useState } from 'react'
 import { assets } from '../assets/assets'
 import axios from 'axios'
 import { backendUrl } from '../App'
+import { toast } from 'react-toastify'
 
 const Add = ({token}) => {
 
@@ -41,10 +42,23 @@ const Add = ({token}) => {
 
       const response = await axios.post(backendUrl + "/api/product/add", formData,{headers:{token}})
 
-      console.log(response.data);
+      if (response.data.success) {
+        toast.success(response.data.message)
+        setName('')
+        setDescription('')
+        setImage1('')
+        setImage2('')
+        setImage3('')
+        setImage4('')
+        setPrice('')
+      }else{
+        toast.error(response.data.message)
+      }
       
 
     } catch (error) {
+      console.log(error);
+      toast.error(error.message)
       
     }
   }
@@ -147,7 +161,7 @@ const Add = ({token}) => {
         <label className='cursor-pointer' htmlFor="bestseller">En çok satanlar listesine ekle</label>
       </div>
 
-      <button type='submit' className='w-28 py-3 mt-4 bg-gray-700 text-white'>EKLE</button>
+      <button type='submit' className='w-28 py-3 mt-4 bg-gray-700 text-white cursor-pointer'>EKLE</button>
 
     </form>
   )
