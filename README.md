@@ -40,6 +40,14 @@
 
 <img width="1918" height="888" alt="Öğeler" src="https://github.com/user-attachments/assets/86860948-9714-432c-bbae-4ce69ec784bd" />
 
+## 27.12.2025 
+
+# Admin artık panelden ürün eklediğinde anasayfa ve outlet kısmından görünüyor
+
+# Müşteri kayıt olduktan sonra hesap bilgileri ve siparişlerine ulaşabiliyor 
+
+# Aynı mail tekrar kayıt olmuyor
+
 <img width="1058" height="914" alt="ÖğeleriSilme" src="https://github.com/user-attachments/assets/5affccc2-8b39-485c-9b84-d30a23409979" />
 
 
