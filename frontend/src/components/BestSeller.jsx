@@ -10,7 +10,7 @@ const BestSeller = () => {
 
  useEffect(() =>{
      setBestSeller(products.slice(0,10));
-  },[])
+  },[products])
   
 
  // useEffect(() =>{
