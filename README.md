@@ -39,6 +39,7 @@
 #Ürün Öğeler Listesi kısmına eklenip silinebiliyor
 
 <img width="1918" height="888" alt="Öğeler" src="https://github.com/user-attachments/assets/86860948-9714-432c-bbae-4ce69ec784bd" />
+<img width="1058" height="914" alt="ÖğeleriSilme" src="https://github.com/user-attachments/assets/5affccc2-8b39-485c-9b84-d30a23409979" />
 
 ## 27.12.2025 
 
@@ -48,7 +49,6 @@
 
 # Aynı mail tekrar kayıt olmuyor
 
-<img width="1058" height="914" alt="ÖğeleriSilme" src="https://github.com/user-attachments/assets/5affccc2-8b39-485c-9b84-d30a23409979" />
 
 
 
