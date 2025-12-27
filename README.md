@@ -34,3 +34,13 @@
 
 <img width="1901" height="766" alt="adminöğe" src="https://github.com/user-attachments/assets/a75415cc-3362-4bf1-9691-d5785b9a3335" />
 
+## 26.12.2025 
+
+#Ürün Öğeler Listesi kısmına eklenip silinebiliyor
+
+<img width="1918" height="888" alt="Öğeler" src="https://github.com/user-attachments/assets/86860948-9714-432c-bbae-4ce69ec784bd" />
+
+<img width="1058" height="914" alt="ÖğeleriSilme" src="https://github.com/user-attachments/assets/5affccc2-8b39-485c-9b84-d30a23409979" />
+
+
+
