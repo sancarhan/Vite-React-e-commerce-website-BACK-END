@@ -14,7 +14,7 @@ const placeOrder = async (req,res) => {
    items,
    address,
    amount,
-   paymentMethod: "COD",
+   paymentMethod: "Kapıda Ödeme",
    payment:false,
    date: Date.now()
   }
@@ -51,12 +51,34 @@ const placeOrderPaypal = async (req,res) => {
 
 const allOrders = async (req,res) => {
  
+ try {
+
+  const orders = await orderModel.find({})
+  res.json({success:true,orders})
+
+ } catch (error) {
+
+  console.log(error);
+  res.json({success:false,message:error.message})
+  
+ }
+
 }
 
 // Ön uç için tüm sipariş verileri
 
 const userOrders = async (req,res) => {
- 
+ try {
+  
+  const { userId } = req.body
+
+  const orders = await orderModel.find({ userId })
+  res.json({success:true,orders})
+
+ } catch (error) {
+  console.log(error);
+  res.json({success:false,message:error.message})
+ }
 }
 
 
