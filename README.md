@@ -53,6 +53,9 @@
 # Siparişleri Admin paneli üzerinden görünüyor
 <img width="973" height="607" alt="siparişadmin" src="https://github.com/user-attachments/assets/4bbdb2d6-0ea2-417d-87e8-ff2e1fd9ac9e" />
 
+## 30.12.2025 
+# Proje bitmiştir, sipraiş durumu güncelleme sipariş alma ürün ekleme.
+
 
 
 
