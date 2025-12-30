@@ -28,7 +28,22 @@ const Orders = ({ token }) => {
     } catch (error) {
       toast.error(error.message);
     }
-  };
+  }
+
+  const statusHandler = async ( event,orderId ) => {
+    try {
+      
+      const response = await axios.post(backendUrl + '/api/order/status' , {orderId, status:event.target.value}, {headers: {token}})
+      if (response.data.success) {
+        await fetchAllOrders()
+        
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error(response.data.message)
+      
+    }
+  }
 
   useEffect(() => {
     fetchAllOrders();
@@ -62,7 +77,7 @@ const Orders = ({ token }) => {
                   }
                 })}
               </div>
-              <p className="mt-3 mb-2 font-medium">{order.address.firstName + " " + order.address.lastName}</p>
+              <p className="mt-3 mb-2 font-medium">{order.address.firsName + " " + order.address.lastName}</p>
               <div>
                 <p>{order.address.street + ","}</p>
                 <p>
@@ -84,12 +99,12 @@ const Orders = ({ token }) => {
               <p>Tarih : {new Date(order.date).toLocaleDateString()}</p>
             </div>
             <p className='text-sm sm:text-[15px]'>{currency} {order.amount}</p>
-            <select value={order.status} className="p-2 font-semibold">
-              <option value="Order Placed">Sipariş Verildi</option>
-              <option value="Packing">Paketlendi</option>
-              <option value="Shipped">Gönderildi</option>
-              <option value="Out for delivery">Teslimat için çıktı</option>
-              <option value="Delivered">Teslim Edildi</option>
+            <select onChange={(event)=>statusHandler(event,order._id)} value={order.status} className="p-2 font-semibold">
+              <option value="Sipariş Verildi">Sipariş Verildi</option>
+              <option value="Paketlendi">Paketlendi</option>
+              <option value="Gönderildi">Gönderildi</option>
+              <option value="Teslimat için çıktı">Teslimat için çıktı</option>
+              <option value="Teslim Edildi">Teslim Edildi</option>
             </select>
           </div>
         ))}
