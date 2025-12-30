@@ -49,61 +49,7 @@ const placeOrder = async (req,res) => {
 // Banka kartı ile ödeme 
 
 const placeOrderStripe = async (req,res) => {
- try {
-  
-  const { userId, items, amount, address } = req.body;
-  const { origin } = req.headers;
-
-  const orederData = {
-   userId,
-   items,
-   address,
-   amount,
-   paymentMethod: "Stripe",
-   payment:false,
-   date: Date.now()
-  }
-
-  const newOrder = new orderModel(orederData)
-  await newOrder.save()
-
-  const line_items = items.map((item) => ({
-   price_data: {
-    currency:currency,
-    product_data: {
-     name:item.name
-    },
-    unit_amount: item.price * 100
-   },
-   quantity: item.quantity
-  }))
-
-  line_items.push({
-   price_data: {
-    currency:currency,
-    product_data: {
-     name:'Teslimat Ücretleri'
-    },
-    unit_amount: deliveryCharge * 100
-   },
-   quantity: 1
-  })
-
-  const session = await stripe.checkout.sessions.create({
-   success_url: ` ${origin}/verify?success=true&orderId=${newOrder._id}`,
-   cancel_url: ` ${origin}/verify?success=false&orderId=${newOrder._id}`,
-   line_items,
-   mode: 'payment',
-  })
-
-
-  res.json({success:true,session_url:session.url})
-
-
- } catch (error) {
-  console.log(error);
-  res.json({success:false,message:error.message})
- }
+ 
 }
 
 // Paypal kartı ile ödeme 
